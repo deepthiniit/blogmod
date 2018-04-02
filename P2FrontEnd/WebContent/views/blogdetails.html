@@ -1,0 +1,47 @@
+ <div class="panel panel-info">
+ <div class="panel-heading">
+  {{blog.blogTitle}}<br>
+    <b>Posted On:</b> {{blog.PostedOn   | date:'medium'}}<br>
+    <b>Posted By:</b>{{blog.PostedBy.firstname}}&nbsp;{{blog.PostedBy.lastname}}<br>
+    <img src="http://localhost:8096/proj2middleware/getimage/{{blog.postedBy.email}}" alt="" height="40px" width="40px">
+ </div>
+ <div class="panel-body">
+     <p ng-bind-html="content"></p> <br> 
+  <div>
+     <a><span class="glyphicon glyphicon-thumbs-up" ng-class="isLiked?'Liked':'default'
+     "ng-click="updateLikes(blog.id)"></span></a>{{blog.likes}} likes
+ </div>
+ <div>
+
+ {{ExceptionMessage.message}}
+ <textarea rows="1"cols="10" ng-model="commentTxt"></textarea>
+ <button type=""button: class="btn btn-primary"ng-click="addcomment(blog,commentTxt)">Post Comment</button>
+ <br> 
+ 
+ <a ng-click="onShowComments()">{{comments.length}}  comments</a><br>   //onshowcomments will be defined in fec to assign boolean type to it
+ <ul style="list-style:none" ng-show="showComments">
+ <li ng-repeat="comment in comments  | orderBy:'-commentedOn'">   //this comments comes from fec line no 95 and places comments in desending order because of minus sign
+ {{comment.commentTxt}}  &nbsp;  {{comment.commentedBy.firstname}}  &nbsp;{{comment.commentedOn  |  date:'medium'}} //medium or any other formate i need eg:yyyy/mm/dd 
+ <hr>
+ </li>
+ </ul>
+ </div>
+ 
+ 
+ 
+ <!--  newly inserted blogcomment       -->    //<!-- (blog.id)init place of blog -->
+ <!-- {{blogComment.commentTxt}}&nbsp;
+ <b>Commented By</b>{{blogComment.commentBy.firstname}}&nbsp;
+ <b>CommentOn</b>{{blogComment.commenton  | date:'medium --> //because of line 81 is removed in fecontroller
+ </div>
+</div>
+
+<!-- updatesLikes(blog.id)
+insert into blogpostlikes values (?,blogpostid,email)
+update blogpost set likes=likes +1 wher id=?
+
+
+                      or
+                      
+ delete from blogpostlikes wher id=?
+ update blogpost set likes = likes  -1 wher id=?      -->                

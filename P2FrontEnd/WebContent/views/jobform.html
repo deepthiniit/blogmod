@@ -1,0 +1,49 @@
+{{error.message}}
+
+<div class="container">
+<form>
+<label>jobTittle</label>
+<div class="form-group">
+<input type="text" ng-model="job.jobTittle" class="form-controller">
+</div>
+
+<div class="form-group">
+<label>job Description</label> <!-- use @lob to use character more than 255 words...for text it gives u 255 words -->
+<textarea ng-model="job.jobDescription" rows="4" cols="10" class="form-controller"></textarea>
+</div>
+
+<div class="form-group">
+<label>Skills Required</label>
+<input type="text" ng-model="job.skillsRequired" class="form-controller">
+</div>
+
+<div class="form-group">
+<label>Location</label>
+<input type="text"  ng-model=job.location" class="form-controller">
+</div>
+
+<div class="form-group">
+<label>Salary</label>
+<input type="text" ng-model="job.salary" class="form-controller">
+</div>
+
+<div class="form-group">
+<label>Company Name</label>
+<input type="text" ng-model="job.companyName" class="form-controller">
+</div>
+
+
+<div class="form-group">
+<label>Years of Exp</label>
+<input type="text" ng-model="job.yrsofExp" class="form-controller">
+</div>
+
+<div class="form-group">
+<input type="submit"  class="form-control" value="Add Job" ng-click="addJob(job)">
+</div>
+
+
+
+
+</form>
+</div>

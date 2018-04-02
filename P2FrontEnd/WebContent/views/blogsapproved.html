@@ -1,0 +1,17 @@
+  <div class="container">
+ <div class="row" style="width:600px">
+ <div ng-repeat="blog in blogsApproved">
+ <div class="panel panel-info">
+ <div class="panel-heading">
+ <a href="#/getblog/{{blog.id}}">{{blog.blogTitle}}</a> 
+ </div>
+ <div class="panel-body">
+   <b>Posted On:</b> {{blog.PostedOn   | date:'medium'}}<br>
+   <b>Posted By:</b>{{blog.PostedBy.firstname}}&nbsp;{{blog.PostedBy.lastname}}
+ </div>
+ </div>
+ </div>
+
+ </div>
+ 
+ </div>
